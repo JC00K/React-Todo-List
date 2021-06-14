@@ -13,7 +13,7 @@ const TaskContainer = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (task.length) {
-      let newTaskList = [...tasks, task];
+      let newTaskList = [...tasks, { singleTask: task }];
       setTasks(newTaskList);
       setTask('');
     }
@@ -38,7 +38,7 @@ const TaskContainer = () => {
           </button>
         </form>
       </div>
-      <TaskList tasks={tasks} />
+      <TaskList setTasks={setTasks} tasks={tasks} />
     </div>
   );
 };

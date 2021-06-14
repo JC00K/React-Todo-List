@@ -1,11 +1,18 @@
 import React from 'react';
 import Task from './Task';
 
-const TaskList = ({ tasks }) => {
+const TaskList = ({ tasks, setTasks }) => {
   return (
     <div className='tasklist-container'>
-      {tasks.map((singleTask) => {
-        return <Task singleTask={singleTask} />;
+      {tasks.map((sTask, i) => {
+        return (
+          <Task
+            key={i}
+            setTasks={setTasks}
+            singleTask={sTask.singleTask}
+            tasks={tasks}
+          />
+        );
       })}
     </div>
   );
