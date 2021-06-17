@@ -19,7 +19,16 @@ const TaskContainer = () => {
     }
   };
 
-  console.log('TASKS', tasks);
+  useEffect(() => {
+    // Logic for saving to local storage
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }, [tasks]);
+
+  useEffect(() => {
+    // Logic for pulling tasks from storage
+    setTasks(JSON.parse(localStorage.getItem('tasks')));
+  }, []);
+
   return (
     <div className='container'>
       <h1>To Do List</h1>
@@ -38,7 +47,7 @@ const TaskContainer = () => {
           </button>
         </form>
       </div>
-      <TaskList setTasks={setTasks} tasks={tasks} />
+      <TaskList setTasks={setTasks} tasks={tasks} task={task} />
     </div>
   );
 };

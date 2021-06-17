@@ -1,7 +1,7 @@
 import React from 'react';
 import Task from './Task';
 
-const TaskList = ({ tasks, setTasks }) => {
+const TaskList = ({ tasks, setTasks, setShowEditForm, task }) => {
   return (
     <div className='tasklist-container'>
       {tasks.map((sTask, i) => {
@@ -11,6 +11,8 @@ const TaskList = ({ tasks, setTasks }) => {
             setTasks={setTasks}
             singleTask={sTask.singleTask}
             tasks={tasks}
+            setShowEditForm={setShowEditForm}
+            task={task}
           />
         );
       })}
